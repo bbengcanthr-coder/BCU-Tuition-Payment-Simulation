@@ -4,7 +4,7 @@ function doGet() {
 }
 
 function saveData(form) {
-  const ss = SpreadsheetApp.openById("ใส่-ID-ชีต");
+  const ss = SpreadsheetApp.openById("lrPHum4zh9_p79JgzTffKR6DIj0ZBD7M2UWJf6yP8");
   const sh = ss.getSheetByName("Sheet1");
   
   // เลขใบเสร็จสุ่ม
