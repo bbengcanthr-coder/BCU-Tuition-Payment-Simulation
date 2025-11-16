@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<style>
+body { font-family: 'Anuphan'; padding: 20px; }
+.receipt {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 350px;
+}
+</style>
+</head>
+<body>
+
+<div class="receipt">
+  <h3>ใบเสร็จรับเงิน</h3>
+  <p>มหาวิทยาลัยเบงจันทร์</p>
+  <p>เลขที่ใบเสร็จ: <span id="id"></span></p>
+  <p>จำนวนเงิน: <span id="fee"></span> บาท</p>
+  <p>สถานะ: ✔ ชำระแล้ว</p>
+  <p>วันที่ออกสลิป: <span id="date"></span></p>
+</div>
+
+<script>
+const url = new URL(window.location.href);
+document.getElementById("fee").textContent = url.searchParams.get("fee");
+document.getElementById("id").textContent = url.searchParams.get("id");
+document.getElementById("date").textContent = new Date().toLocaleString();
+</script>
+
+</body>
+</html>
