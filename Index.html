@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ชำระค่าเทอม BCU</title>
+<style>
+body { font-family: 'Anuphan', sans-serif; padding: 20px; }
+input, select { width: 100%; padding: 10px; margin: 10px 0; }
+button { padding: 12px; width: 100%; background:#3563ff; color:white; border:none; border-radius:8px; }
+</style>
+</head>
+<body>
+
+<h2>ชำระค่าเทอม มหาวิทยาลัยเบงจันทร์</h2>
+
+<label>ชื่อ - นามสกุล</label>
+<input id="name">
+
+<label>รหัสนักศึกษา</label>
+<input id="studentId">
+
+<label>คณะ</label>
+<select id="faculty">
+  <option>วิศวกรรมศาสตร์</option>
+  <option>วิจิตรศิลป์</option>
+  <option>อื่นๆ</option>
+</select>
+
+<label>สาขา</label>
+<input id="major">
+
+<label>Twitter @</label>
+<input id="twitter">
+
+<button onclick="submitForm()">ลงทะเบียนและออกสลิป</button>
+
+<script>
+function submitForm(){
+  const data = {
+    name: document.getElementById("name").value,
+    studentId: document.getElementById("studentId").value,
+    faculty: document.getElementById("faculty").value,
+    major: document.getElementById("major").value,
+    twitter: document.getElementById("twitter").value,
+  };
+  
+  google.script.run.withSuccessHandler(res => {
+    window.location = "receipt.html?fee=" + res.fee + "&id=" + res.receiptNo;
+  }).saveData(data);
+}
+</script>
+
+</body>
+</html>
